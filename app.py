@@ -57,7 +57,13 @@ st.markdown(
 # Header
 st.markdown('<div class="header"><h1>🏈 NFL Predictor </h1><p class="muted">Live demo (ESPN) · Position-aware predictions · Regression & heuristic models</p></div>', unsafe_allow_html=True)
 
-
+# Sidebar controls
+st.sidebar.header("Controls")
+pick_date = st.sidebar.date_input("Pick a date", value=date.today())
+model_choice = st.sidebar.selectbox("Prediction model", ["heuristic", "regression", "elo"],
+index=1)
+st.sidebar.markdown("---")
+st.sidebar.markdown("Cards, charts and highlights")
 
 # Load scoreboard (cached)
 events = fetch_scoreboard(pick_date.strftime("%Y%m%d"))
